@@ -2,4 +2,4 @@ this is a subbmision for the TSA web design 2025-2026 competion this is the webs
 
 tsawebdesignfl.github.io 
 
-[tsawebdesignfl.github.io ](tsawebdesignfl.github.io )
+<a href="tsawebdesignfl.github.io " target="_blank">tsawebdesignfl.github.io </a>
