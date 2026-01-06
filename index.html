@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Our Community Story - Home Page</title>
+    <meta name="description" content="This is a story of our community. We hope you enjoy!">
+  </head>
+  <body>
+    <div class="main">
+      <h1>Our Community Story</h1>
+    
+    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Collapsible Sidebar Navigation</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+          }
+
+          body {
+            display: flex;
+            min-height: 100vh;
+            background: #f8fbff hidden;
+          }
+
+          /* Collapsed Sidebar */
+          #sidebar {
+            width: 70px;
+            background: #2f3d4b;
+            transition: all 1.0s ease;
+            overflow: hidden;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+          }
+
+          /* Expanded Sidebar */
+          #sidebar:hover {
+            width: 250px;
+          }
+
+          .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.3s;
+          }
+
+          .nav-item:hover {
+            background: #34495e;
+          }
+
+          .nav-item i {
+            font-size: 1.5rem;
+            min-width: 30px;
+            margin-right: 20px;
+          }
+
+          .nav-text {
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 1.1rem;
+          }
+
+          #sidebar:hover .nav-text {
+            opacity: 1;
+          }
+
+          .logo {
+            padding: 25px 20px;
+            border-bottom: 1px solid #34495e;
+          }
+
+          .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+          }
+
+          #sidebar:hover .logo-text {
+            opacity: 1;
+          }
+
+          /* Main Content */
+          main {
+            flex: 1;
+            padding: 30px;
+            background: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+          }
+
+          h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+          }
+
+          /* Icon Placeholder Styles */
+          .icon-placeholder {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #ecf0f1;
+            border-radius: 4px;
+          }
+        </style>
+      </head>
+      <body>
+        <!-- Side Navigation -->
+        <nav id="sidebar">
+          <div class="logo">
+            <span class="logo-text">side bar</span>
+          </div>
+          <a href="mainpage.html" class="nav-item">
+            <i class="icon-placeholder"></i>
+            <span class="nav-text">recent posts</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="icon-placeholder"></i>
+            <span class="nav-text">Analytics</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="icon-placeholder"></i>
+            <span class="nav-text">Users</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="icon-placeholder"></i>
+            <span class="nav-text">Settings</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="icon-placeholder"></i>
+            <span class="nav-text">Support</span>
+          </a>
+        </nav>
+      </body>
+    </html>
+  </body>
+</html>
