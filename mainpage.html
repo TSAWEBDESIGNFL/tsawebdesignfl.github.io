@@ -1,108 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tampa Timeline</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tampa Timeline</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    /* Back Button */
+    .back-button {
+        display: inline-block;
+        margin: 20px;
+        padding: 10px 18px;
+        background-color: #0077cc;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.2s ease-in-out;
+    }
+    .back-button:hover {
+        background-color: #005fa3;
+        transform: scale(1.05);
+    }
+
+    /* Timeline container */
+    .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px 0;
+    }
+
+    /* Vertical line */
+    .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #0077cc;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Timeline item */
+    .timeline-item {
+        padding: 20px 40px;
+        position: relative;
+        width: 50%;
+        cursor: pointer;
+    }
+
+    .left { left: 0; }
+    .right { left: 50%; }
+
+    /* Bubble */
+    .content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #0077cc;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        transition: 0.2s ease-in-out;
+        position: relative;
+    }
+
+    .content:hover {
+        transform: scale(1.03);
+        background-color: #e9f3ff;
+    }
+
+    /* Hover image */
+    .hover-img {
+        position: absolute;
+        top: 50%;
+        right: -220px;
+        transform: translateY(-50%);
+        width: 200px;
+        height: auto;
+        border-radius: 8px;
+        display: none;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .content:hover .hover-img {
+        display: block;
+    }
+
+    /* Circle connector */
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background-color: #0077cc;
+        border-radius: 50%;
+        top: 30px;
+        z-index: 10;
+        border: 3px solid white;
+    }
+
+    .left::before { right: -9px; }
+    .right::before { left: -9px; }
+
+    /* Responsive */
+    @media screen and (max-width: 700px) {
+        .timeline-item {
+            width: 100%;
+            left: 0 !important;
+            padding-left: 70px;
+            padding-right: 25px;
         }
 
-        /* Shared Button Style (matches your back button) */
-        .timeline-button, .back-button {
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 10px;
-            background-color: #0077cc;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.2s ease-in-out;
-            cursor: pointer;
+        .timeline::after {
+            left: 30px;
         }
 
-        .timeline-button:hover, .back-button:hover {
-            background-color: #005fa3;
-            transform: scale(1.05);
+        .timeline-item::before {
+            left: 21px;
         }
 
-        /* Timeline container */
-        .timeline-container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .hover-img {
+            display: none !important;
         }
-
-        /* Timeline content box */
-        .timeline-content {
-            margin-top: 20px;
-            padding: 20px;
-            background: #e9f3ff;
-            border-left: 5px solid #0077cc;
-            border-radius: 6px;
-            font-size: 18px;
-            display: none;
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-    <!-- Back Button -->
-    <a href="mainpage.html" class="back-button">← Back to Main Page</a>
+<a href="mainpage.html" class="back-button">← Back to Main Page</a>
 
-    <div class="timeline-container">
-        <h2>Tampa History Timeline</h2>
+<div class="timeline">
 
-        <!-- Timeline Buttons -->
-        <button class="timeline-button" onclick="showEvent('event1')">1500s – Indigenous History</button>
-        <button class="timeline-button" onclick="showEvent('event2')">1824 – Fort Brooke</button>
-        <button class="timeline-button" onclick="showEvent('event3')">1880s – Cigar Boom</button>
-        <button class="timeline-button" onclick="showEvent('event4')">1920s – Tampa Grows</button>
-        <button class="timeline-button" onclick="showEvent('event5')">Today – Modern Tampa</button>
-
-        <!-- Timeline Content -->
-        <div id="event1" class="timeline-content">
-            Tampa’s earliest history begins with the Tocobaga and Calusa tribes who lived around the bay.
+    <!-- Event 1 -->
+    <a href="event1.html" style="text-decoration:none; color:inherit;">
+        <div class="timeline-item left">
+            <div class="content">
+                <h3>1500s — Indigenous History</h3>
+                <p>The Tocobaga and Calusa tribes lived throughout Tampa Bay.</p>
+                <img src="images/tribe.jpg" class="hover-img">
+            </div>
         </div>
+    </a>
 
-        <div id="event2" class="timeline-content">
-            The U.S. Army established Fort Brooke, marking the beginning of modern Tampa’s development.
+    <!-- Event 2 -->
+    <a href="event2.html" style="text-decoration:none; color:inherit;">
+        <div class="timeline-item right">
+            <div class="content">
+                <h3>1824 — Fort Brooke</h3>
+                <p>The U.S. Army established Fort Brooke.</p>
+                <img src="images/fortbrooke.jpg" class="hover-img">
+            </div>
         </div>
+    </a>
 
-        <div id="event3" class="timeline-content">
-            Ybor City became the cigar capital of the world, attracting immigrants from Cuba, Spain, and Italy.
+    <!-- Event 3 -->
+    <a href="event3.html" style="text-decoration:none; color:inherit;">
+        <div class="timeline-item left">
+            <div class="content">
+                <h3>1880s — Cigar Boom</h3>
+                <p>Ybor City became the cigar capital of the world.</p>
+                <img src="images/cigar.jpg" class="hover-img">
+            </div>
         </div>
+    </a>
 
-        <div id="event4" class="timeline-content">
-            Tampa expanded rapidly with new neighborhoods, streetcars, and cultural growth.
-        </div>
-
-        <div id="event5" class="timeline-content">
-            Tampa is now a major hub for culture, sports, technology, and tourism.
-        </div>
-    </div>
-
-    <script>
-        function showEvent(id) {
-            // Hide all events
-            document.querySelectorAll('.timeline-content').forEach(div => {
-                div.style.display = 'none';
-            });
-
-            // Show selected event
-            document.getElementById(id).style.display = 'block';
-        }
-    </script>
+</div>
 
 </body>
 </html>
