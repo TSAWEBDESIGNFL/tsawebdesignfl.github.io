@@ -1,0 +1,136 @@
+body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+
+    body {
+  background-image: url(Light.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: arial;
+  display: block;
+  margin: 40px;
+  text-align: left;
+}
+
+
+ 
+
+
+
+   
+    .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px 0;
+    }
+
+    
+    .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #0077cc;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    
+    .timeline-item {
+        position: relative;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 18px;
+        height: 18px;
+        background-color: #0077cc;
+        border-radius: 50%;
+        border: 3px solid white;
+        z-index: 10;
+    }
+
+    
+    .timeline-item .content {
+        position: relative;
+        width: 45%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #0077cc;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        transition: 0.2s ease-in-out;
+    }
+
+    
+    .timeline-item.left .content {
+        margin-right: auto;
+        margin-left: 0;
+        text-align: right;
+    }
+
+
+    .timeline-item.right .content {
+        margin-left: auto;
+        margin-right: 0;
+        text-align: left;
+    }
+
+   
+    .timeline-item .content:hover {
+        transform: scale(1.03);
+        background-color: #e9f3ff;
+    }
+
+   
+    .hover-img {
+        position: absolute;
+        top: 50%;
+        right: -220px;
+        transform: translateY(-50%);
+        width: 200px;
+        border-radius: 8px;
+        display: none;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .timeline-item .content:hover .hover-img {
+        display: block;
+    }
+
+   
+    @media screen and (max-width: 700px) {
+        .timeline::after {
+            left: 30px;
+            transform: none;
+        }
+
+        .timeline-item::before {
+            left: 30px;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item .content {
+            width: calc(100% - 80px);
+            margin-left: 60px;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .hover-img {
+            display: none !important;
+        }
+    }

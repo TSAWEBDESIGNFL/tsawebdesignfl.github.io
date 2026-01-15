@@ -4,161 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tampa Timeline</title>
+<link rel="stylesheet" href="timeline.css">
+    
+</head>
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-    }
+<body>
+<h4 class="hidden">Please reload the page for the best experience. If you continue to see this message after reloading, check your browser settings and make sure CSS is enabled.</h4>
+<style>.hidden {
+  display: none;}</style> 
+<div class="timeline">
 
-    /* Back Button */
-    .back-button {
-        display: inline-block;
-        margin: 20px;
-        padding: 10px 18px;
-        background-color: #0077cc;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-size: 16px;
-        font-weight: bold;
-        transition: 0.2s ease-in-out;
-    }
-    .back-button:hover {
-        background-color: #005fa3;
-        transform: scale(1.05);
-    }
 
-    /* Timeline container */
-    .timeline {
-        position: relative;
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 20px 0;
-    }
-
-    /* Center vertical line */
-    .timeline::after {
-        content: "";
-        position: absolute;
-        width: 4px;
-        background-color: #0077cc;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* Each item spans full width */
-    .timeline-item {
-        position: relative;
-        width: 100%;
-        padding: 20px 0;
-    }
-
-    /* Dot ALWAYS centered */
-    .timeline-item::before {
-        content: "";
-        position: absolute;
-        top: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 18px;
-        height: 18px;
-        background-color: #0077cc;
-        border-radius: 50%;
-        border: 3px solid white;
-        z-index: 10;
-    }
-
-    /* Content box */
-    .timeline-item .content {
-        position: relative;
-        width: 45%;
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 5px solid #0077cc;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        transition: 0.2s ease-in-out;
-    }
-
-    /* Left side */
-    .timeline-item.left .content {
-        margin-right: auto;
-        margin-left: 0;
-        text-align: right;
-    }
-
-    /* Right side */
-    .timeline-item.right .content {
-        margin-left: auto;
-        margin-right: 0;
-        text-align: left;
-    }
-
-    /* Hover effect */
-    .timeline-item .content:hover {
-        transform: scale(1.03);
-        background-color: #e9f3ff;
-    }
-
-    /* Hover image */
-    .hover-img {
-        position: absolute;
-        top: 50%;
-        right: -220px;
-        transform: translateY(-50%);
-        width: 200px;
-        border-radius: 8px;
-        display: none;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .timeline-item .content:hover .hover-img {
-        display: block;
-    }
-
-    /* Mobile */
-    @media screen and (max-width: 700px) {
-        .timeline::after {
-            left: 30px;
-            transform: none;
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        .timeline-item::before {
-            left: 30px;
-            transform: translateX(-50%);
+        /* Back Button Styling */
+        .home-button {
+            display: inline-block;
+            margin: 15px;
+            padding: 10px 18px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.2s ease-in-out;
         }
 
-        .timeline-item .content {
-            width: calc(100% - 80px);
-            margin-left: 60px;
-            margin-right: 0;
-            text-align: left;
+        .Home-button:hover {
+            background-color: #005fa3;
+            transform: scale(1.05);
         }
 
-        .hover-img {
-            display: none !important;
-        }
-    }
-</style>
+    
+    </style>
 </head>
 
 <body>
 
-<a href="mainpage.html" class="back-button">← Back to Main Page</a>
-
-<div class="timeline">
+    <!-- Back Button -->
+    <a href="index.html" class="home-button">← Back to Home</a>
 
     <!-- EVENT 1 -->
     <a href="event1.html" style="text-decoration:none; color:inherit;">
         <div class="timeline-item left">
             <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event1.jpg" class="hover-img">
+                <h3>St Petersburg Museum of History</h3>
+                <p>The St Petersburg Museum of History, make it their goal to facilitate the free flow of information from experts and academics to the general public in an easily digestible manner.</p>
+                <h6>1908-Today</h6>
+                <img src="tampa museum pic cropped.jpg" class="hover-img">
             </div>
         </div>
     </a>
@@ -167,9 +66,9 @@
     <a href="event2.html" style="text-decoration:none; color:inherit;">
         <div class="timeline-item right">
             <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event2.jpg" class="hover-img">
+                <h3>Henry B. Plant Museum</h3>
+                <p>The Henry B. Plant Museum, located in Tampa, Florida, is a historic site housed in the former Tampa Bay Hotel. It offers a unique glimpse into the opulence of the Gilded Age.</p>
+                <img src="HenryB.jpg" class="hover-img">
             </div>
         </div>
     </a>
@@ -178,9 +77,10 @@
     <a href="event3.html" style="text-decoration:none; color:inherit;">
         <div class="timeline-item left">
             <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event3.jpg" class="hover-img">
+                <h3>Tampa magazines</h3>
+                <p>This is an article about the Development of and growth of 100 years of Tampa's rich and entertaining history</p>
+                <h6>1920-2000s</h6>
+                <img src="Tampa magazines.jpg" class="hover-img">
             </div>
         </div>
     </a>
@@ -189,9 +89,10 @@
     <a href="event4.html" style="text-decoration:none; color:inherit;">
         <div class="timeline-item right">
             <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event4.jpg" class="hover-img">
+                <h3>Silver springs</h3>
+                <p>Explore the natural beauty of Silver Springs, a popular destination for swimming and snorkeling in the crystal-clear waters of the springs.</p>
+                <h6>1804-Today</h6>
+                <img src="Silver_springs.jpg" class="hover-img">
             </div>
         </div>
     </a>
@@ -200,69 +101,27 @@
     <a href="event5.html" style="text-decoration:none; color:inherit;">
         <div class="timeline-item left">
             <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event5.jpg" class="hover-img">
-            </div>
-        </div>
-    </a>
-
-    <!-- EVENT 6 -->
-    <a href="event6.html" style="text-decoration:none; color:inherit;">
-        <div class="timeline-item right">
-            <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event6.jpg" class="hover-img">
-            </div>
-        </div>
-    </a>
-
-    <!-- EVENT 7 -->
-    <a href="event7.html" style="text-decoration:none; color:inherit;">
-        <div class="timeline-item left">
-            <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event7.jpg" class="hover-img">
-            </div>
-        </div>
-    </a>
-
-    <!-- EVENT 8 -->
-    <a href="event8.html" style="text-decoration:none; color:inherit;">
-        <div class="timeline-item right">
-            <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event8.jpg" class="hover-img">
-            </div>
-        </div>
-    </a>
-
-    <!-- EVENT 9 -->
-    <a href="event9.html" style="text-decoration:none; color:inherit;">
-        <div class="timeline-item left">
-            <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event9.jpg" class="hover-img">
-            </div>
-        </div>
-    </a>
-
-    <!-- EVENT 10 -->
-    <a href="event10.html" style="text-decoration:none; color:inherit;">
-        <div class="timeline-item right">
-            <div class="content">
-                <h3></h3>
-                <p></p>
-                <img src="images/event10.jpg" class="hover-img">
+                <h3>Cigar City</h3>
+                <p>This vibrant area became a major center for cigar manufacturing, attracting skilled workers from Cuba and Spain. </p>
+                <h6>1886-Today</h6>
+                <img src="cigar-city-magazine-issue-19.jpg" class="hover-img">
             </div>
         </div>
     </a>
 
 </div>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 
 </body>
 </html>
