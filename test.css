@@ -1,0 +1,1055 @@
+body { 
+
+  background-image: url(light.jpg); 
+
+  background-size: cover; 
+
+  background-attachment: fixed; 
+
+  background-repeat: no-repeat; 
+
+  font-family: arial; 
+
+  display: block; 
+
+  margin: 40px; 
+
+  text-align: left; 
+
+} 
+
+ 
+
+/* The MAIN class is to set the left and right margins. */ 
+
+ 
+
+.main { 
+
+  display: block; 
+
+  max-width: 1280px; 
+
+  padding-left: 20px; 
+
+  padding-right: 20px; 
+
+  margin-left: auto; 
+
+  margin-right: auto; 
+
+} 
+
+ 
+
+h1 { 
+
+  font-family: arial; 
+
+  text-align: center; 
+
+  font-weight: bold; 
+
+  border-color: #ffffff66; 
+
+  border-filter: blur(20px); 
+
+  border-style: solid; 
+
+  border-width: 4px; 
+
+  border-radius: 16px; 
+
+  background-color: #ffffff66; 
+
+  backdrop-filter: blur(10px); 
+
+  -webkit-text-stroke-width: 1px; 
+
+  -webkit-text-stroke-color: black; 
+
+  letter-spacing: 4px; 
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+
+  color: #ffffff; 
+
+  margin-bottom: 0px; 
+
+  font-size: 50px; 
+
+  padding: 6px; 
+
+} 
+
+ 
+
+h2 { 
+
+  font-family: arial; 
+
+  font-weight: bold; 
+
+  font-style: italic; 
+
+  color: white; 
+
+  border-color: #ffffff66; 
+
+  border-filter: blur(20px); 
+
+  border-style: solid; 
+
+  border-width: 4px; 
+
+  border-radius: 16px; 
+
+  background-color: #ffffff66; 
+
+  backdrop-filter: blur(10px); 
+
+  -webkit-text-stroke-width: 1px; 
+
+  -webkit-text-stroke-color: black; 
+
+  letter-spacing: 1px; 
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+
+  margin-bottom: 0px; 
+
+  font-size: 36px; 
+
+  padding: 6px; 
+
+} 
+
+ 
+
+h3 { 
+
+  font-family: arial; 
+
+  font-weight: bold; 
+
+  margin-bottom: 0px; 
+
+  font-size: 28px; 
+
+  color: #000000; 
+
+} 
+
+ 
+
+h4 { 
+
+  font-family: arial; 
+
+  font-weight: bold; 
+
+  font-size: 22px; 
+
+  color: #000000; 
+
+  margin-bottom: 0px; 
+
+} 
+
+ 
+
+h6 { 
+
+  font-style: italic; 
+
+  font-size: 14px; 
+
+} 
+
+ 
+
+p { 
+
+  font-size: 22px; 
+
+} 
+
+ 
+
+ol { 
+
+  font-size: 22px; 
+
+} 
+
+ 
+
+ul { 
+
+  font-size: 22px; 
+
+} 
+
+ 
+
+img { 
+
+  margin: 36px; 
+
+  max-width: 400px; 
+
+  border-style: solid; 
+
+  border-width: 4px; 
+
+  border-radius: 10px; 
+
+  margin-top: 20px; 
+
+  float: left; 
+
+} 
+
+ 
+
+.special { 
+
+  color: #000000; 
+
+  font-style: normal; 
+
+  font-size: 20px; 
+
+  border-color: #ffffff66; 
+
+  border-filter: blur(20px); 
+
+  border-style: solid; 
+
+  border-width: 4px; 
+
+  border-radius: 16px; 
+
+  background-color: #ffffff88; 
+
+  backdrop-filter: blur(10px); 
+
+  margin-top: 6px; 
+
+  padding-left: 40px; 
+
+  padding-right: 40px; 
+
+  text-align: justify; 
+
+  max-height: 32768px; 
+
+  overflow: auto; 
+
+  padding-bottom: 40px; 
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+
+} 
+
+ 
+
+#special { 
+
+  padding: 20px 40px; 
+
+  font-size: 22px; 
+
+} 
+
+ 
+
+#specialb { 
+
+  display: block; 
+
+} 
+
+ 
+
+.navbar { 
+
+  display: flex; 
+
+  flex-flow: row wrap; 
+
+  justify-content: space-evenly; 
+
+  font-size: 22px; 
+
+  padding: 4px; 
+
+  position: sticky; 
+
+  top: 10px; 
+
+  z-index: 1; 
+
+} 
+
+ 
+
+a { 
+
+  color: #0022aa; 
+
+  text-decoration: none; 
+
+} 
+
+ 
+
+a:hover { 
+
+  text-decoration: underline; 
+
+} 
+
+ 
+
+.navbar > a { 
+
+  border-color: #ffffff88; 
+
+  border-filter: blur(20px); 
+
+  border-style: solid; 
+
+  border-width: 2px; 
+
+  border-radius: 8px; 
+
+  backdrop-filter: blur(10px); 
+
+  height: 26px; 
+
+  color: #000000; 
+
+  padding: 2px 4px; 
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+
+} 
+
+ 
+
+.nav { 
+
+  background-color: #4488ff66; 
+
+  border-color: #ffffff66; 
+
+  border-filter: blur(20px); 
+
+  border-style: solid; 
+
+  border-width: 2px; 
+
+  border-radius: 8px; 
+
+  backdrop-filter: blur(10px); 
+
+  margin: 2px; 
+
+  text-decoration: none; 
+
+  transition: 0.25s ease-in-out; 
+
+} 
+
+ 
+
+.nav:hover { 
+
+  transform: scale(1.05); 
+
+  background-color: #22448866; 
+
+  border-color: #22448866; 
+
+  text-decoration: none; 
+
+} 
+
+ 
+
+.samepage { 
+
+  background-color: #44ff8866; 
+
+  backdrop-filter: blur(10px); 
+
+  margin: 2px; 
+
+  text-decoration: none; 
+
+  transition: 0.25s ease-in-out; 
+
+} 
+
+ 
+
+.samepage:hover { 
+
+  transform: scale(1.05); 
+
+  background-color: #22884466; 
+
+  border-color: #22884466; 
+
+  text-decoration: none; 
+
+} 
+
+ 
+
+.card { 
+
+  display: flex; 
+
+  flex-flow: row wrap; 
+
+} 
+
+ 
+
+/* Timeline code start */ 
+
+ 
+
+.timeline-bound { 
+
+  margin-left: auto; 
+
+  margin-right: auto; 
+
+  padding: 20px; 
+
+} 
+
+ 
+
+.timeline { 
+
+  position: relative; 
+
+  max-width: 900px; 
+
+  margin: 40px auto; 
+
+  padding: 20px; 
+
+} 
+
+ 
+
+.timeline::after { 
+
+  content: ""; 
+
+  position: absolute; 
+
+  width: 4px; 
+
+  backdrop-filter: blur(20px); 
+
+  top: 0; 
+
+  bottom: 0; 
+
+  left: 50%; 
+
+  transform: translateX(-50%); 
+
+} 
+
+ 
+
+.timeline-item { 
+
+  position: relative; 
+
+  width: 100%; 
+
+  padding: 20px 0; 
+
+} 
+
+ 
+
+ 
+
+.timeline-item .content { 
+
+  position: relative; 
+
+  width: 45%; 
+
+  border-color: #ffffff66; 
+
+  border-filter: blur(20px); 
+
+  border-style: solid; 
+
+  border-width: 4px; 
+
+  border-radius: 16px; 
+
+  background-color: #ffffff66; 
+
+  backdrop-filter: blur(10px); 
+
+  padding: 20px; 
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+
+  transition: 0.25s ease-in-out; 
+
+} 
+
+ 
+
+ 
+
+.timeline-item.left .content { 
+
+  margin-right: auto; 
+
+  margin-left: 0; 
+
+  text-align: right; 
+
+  max-height: 2160px; 
+
+  overflow: auto; 
+
+} 
+
+ 
+
+.timeline-item.left img { 
+
+  width: 200px; 
+
+} 
+
+ 
+
+.timeline-item.right img { 
+
+  width: 200px; 
+
+} 
+
+ 
+
+.timeline-item.right .content { 
+
+  margin-left: auto; 
+
+  margin-right: 0; 
+
+  text-align: left; 
+
+} 
+
+ 
+
+ 
+
+.timeline-item .content:hover { 
+
+  transform: scale(1.05); 
+
+  backdrop-filter: blur(50px); 
+
+} 
+
+ 
+
+@media screen and (max-width: 960px) { 
+
+  .timeline::after { 
+
+    left: 30px; 
+
+    transform: none; 
+
+  } 
+
+ 
+
+  .timeline-item::before { 
+
+    left: 30px; 
+
+    transform: translateX(-50%); 
+
+  } 
+
+ 
+
+  .timeline-item .content { 
+
+    width: calc(100% - 80px); 
+
+    margin-left: 60px; 
+
+    margin-right: 0; 
+
+    text-align: left; 
+
+  } 
+
+} 
+
+ 
+
+@media screen and (max-height: 720px) { 
+
+  .timeline::after { 
+
+    left: 30px; 
+
+    transform: none; 
+
+  } 
+
+ 
+
+  .timeline-item::before { 
+
+    left: 30px; 
+
+    transform: translateX(-50%); 
+
+  } 
+
+ 
+
+  .timeline-item .content { 
+
+    width: calc(100% - 80px); 
+
+    margin-left: 60px; 
+
+    margin-right: 0; 
+
+    text-align: left; 
+
+  } 
+
+} 
+
+ 
+
+/* Timeline code end */ 
+
+ 
+
+.hidden { 
+
+  display: none; 
+
+} 
+
+ 
+
+/* Welcome to the Realm of Darkness! */ 
+
+/* In other words, this creates a dark theme. Only the color settings are changed here so we don't have to duplicate all changes to both. */ 
+
+ 
+
+@media (prefers-color-scheme: dark) { 
+
+  body { 
+
+    background-image: url(dark.jpg); 
+
+  } 
+
+ 
+
+  h1 { 
+
+    border-color: #22222266; 
+
+    background-color: #22222266; 
+
+    -webkit-text-stroke-color: white; 
+
+    color: #222222; 
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); 
+
+  } 
+
+ 
+
+  h2 { 
+
+    border-color: #22222266; 
+
+    background-color: #22222266; 
+
+    -webkit-text-stroke-color: white; 
+
+    color: #222222; 
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); 
+
+  } 
+
+ 
+
+  h3 { 
+
+    color: #ffffff; 
+
+  } 
+
+ 
+
+  h4 { 
+
+    color: #ffffff; 
+
+  } 
+
+ 
+
+  .special { 
+
+    color: #ffffff; 
+
+    border-color: #22222266; 
+
+    background-color: #22222288; 
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); 
+
+  } 
+
+ 
+
+  a { 
+
+    color: #88bbff; 
+
+  } 
+
+   
+
+  .navbar > a { 
+
+    border-color: #11224488; 
+
+    color: #ffffff; 
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); 
+
+  } 
+
+ 
+
+  .nav { 
+
+    background-color: #22448866; 
+
+    border-color: #ffffff66; 
+
+    color: #ffffff; 
+
+  } 
+
+ 
+
+  .nav:hover { 
+
+    background-color: #4488ff66; 
+
+    border-color: #ffffff66; 
+
+  } 
+
+ 
+
+  .samepage { 
+
+    background-color: #22884466; 
+
+  } 
+
+ 
+
+  .samepage:hover { 
+
+    background-color: #44ff8866; 
+
+    border-color: #ffffff66; 
+
+  } 
+
+ 
+
+ 
+
+  .timeline-item .content { 
+
+    border-color: #00000066; 
+
+    background-color: #22222266; 
+
+    color: #ffffff; 
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); 
+
+  } 
+
+   
+
+  .resource { 
+
+    width: 75%; 
+
+    margin: 10px; 
+
+    height: 550px; 
+
+  } 
+
+} 
+
+ 
+
+/* The rest of this stylesheet affects screens with less resolution. */ 
+
+ 
+
+@media screen and (max-width: 1152px) { 
+
+  h1 { 
+
+    font-size: 40px; 
+
+  } 
+
+   
+
+  h2 { 
+
+    font-size: 32px; 
+
+  } 
+
+   
+
+  h3 { 
+
+    font-size: 24px; 
+
+  } 
+
+   
+
+  h4 { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  h6 { 
+
+    font-size: 12px; 
+
+  } 
+
+   
+
+  p { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  ol { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  ul { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  a { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  .navbar > a { 
+
+    height: 20px; 
+
+  } 
+
+   
+
+  img { 
+
+    width: 300px; 
+
+  } 
+
+   
+
+  .timeline-item .content  img { 
+
+    width: 150px; 
+
+  } 
+
+ 
+
+  .timeline-item .content { 
+
+    max-width: 400px; 
+
+    padding: 20px; 
+
+    padding-top: 0px; 
+
+  } 
+
+} 
+
+ 
+
+@media screen and (max-height: 864px) { 
+
+  h1 { 
+
+    font-size: 40px; 
+
+  } 
+
+ 
+
+  h2 { 
+
+    font-size: 32px; 
+
+  } 
+
+ 
+
+  h3 { 
+
+    font-size: 24px; 
+
+  } 
+
+ 
+
+  h4 { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  h6 { 
+
+    font-size: 12px; 
+
+  } 
+
+ 
+
+  p { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  ol { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  ul { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  a { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  .navbar > a { 
+
+    height: 20px; 
+
+  } 
+
+ 
+
+  img { 
+
+    width: 300px; 
+
+  } 
+
+   
+
+  .timeline-item .content  img { 
+
+    width: 150px; 
+
+  } 
+
+ 
+
+  .timeline-item .content { 
+
+    max-width: 400px; 
+
+    padding: 20px; 
+
+    padding-top: 0px; 
+
+  } 
+
+} 

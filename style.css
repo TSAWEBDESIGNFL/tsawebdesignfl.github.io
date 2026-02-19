@@ -486,3 +486,228 @@ details summary {
   padding-left: 18px;
 }
 
+
+
+
+@media screen and (max-width: 1152px) { 
+
+  h1 { 
+
+    font-size: 40px; 
+
+  } 
+
+   
+
+  h2 { 
+
+    font-size: 32px; 
+
+  } 
+
+   
+
+  h3 { 
+
+    font-size: 24px; 
+
+  } 
+
+   
+
+  h4 { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  h6 { 
+
+    font-size: 12px; 
+
+  } 
+
+   
+
+  p { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  ol { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  ul { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  a { 
+
+    font-size: 16px; 
+
+  } 
+
+   
+
+  .navbar > a { 
+
+    height: 20px; 
+
+  } 
+
+   
+
+  img { 
+
+    width: 300px; 
+
+  } 
+
+   
+
+  .timeline-item .content  img { 
+
+    width: 150px; 
+
+  } 
+
+ 
+
+  .timeline-item .content { 
+
+    max-width: 400px; 
+
+    padding: 20px; 
+
+    padding-top: 0px; 
+
+  } 
+
+} 
+
+ 
+
+@media screen and (max-height: 864px) { 
+
+  h1 { 
+
+    font-size: 40px; 
+
+  } 
+
+ 
+
+  h2 { 
+
+    font-size: 32px; 
+
+  } 
+
+ 
+
+  h3 { 
+
+    font-size: 24px; 
+
+  } 
+
+ 
+
+  h4 { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  h6 { 
+
+    font-size: 12px; 
+
+  } 
+
+ 
+
+  p { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  ol { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  ul { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  a { 
+
+    font-size: 16px; 
+
+  } 
+
+ 
+
+  .navbar > a { 
+
+    height: 20px; 
+
+  } 
+
+ 
+
+  img { 
+
+    width: 300px; 
+
+  } 
+
+   
+
+  .timeline-item .content  img { 
+
+    width: 150px; 
+
+  } 
+
+ 
+
+  .timeline-item .content { 
+
+    max-width: 400px; 
+
+    padding: 20px; 
+
+    padding-top: 0px; 
+
+  } 
+
+} 
+
