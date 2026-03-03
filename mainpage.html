@@ -35,9 +35,8 @@
     <a class="samepage" href="mainpage.html">Tampa Timeline</a>
     <a class="nav" href="Funfacts.html">Fun Facts</a>
     <a class="nav" href="travel.html">Travel Tips</a>
-    <a class="nav" href="refrences.html">References</a>
-    <a class="nav" href="Contact.html">Contact Us</a>
-  </div>
+    <a class="nav" href="references.html">Reference</a>
+    <a class="nav" href="Contact.html">Contact Us</a>  </div>
 </div>
 
 <div class="timeline">
@@ -55,7 +54,7 @@
   </a>
 
   <!-- EVENT 2 -->
-  <a href="event1.html" style="text-decoration:none; color:inherit;">
+  <a href="Event3.html" style="text-decoration:none; color:inherit;">
     <div class="timeline-item right">
       <div class="content">
         <h3>Tampa Magazines</h3>
@@ -124,14 +123,47 @@
 <script>
   const indicator = document.querySelector('.scroll-indicator');
   const timeline = document.querySelector('.timeline');
+  const items = document.querySelectorAll('.timeline-item');
+  const backBtn = document.getElementById('back-to-top');
 
-  window.addEventListener('scroll', () => {
+  function updateIndicator() {
     const rect = timeline.getBoundingClientRect();
     const scrollPos = Math.min(Math.max(0, window.innerHeight - rect.top), rect.height);
     indicator.style.top = scrollPos + 'px';
+
+    // determine current item in middle of viewport
+    let currentYear = '';
+    items.forEach(item => {
+      const r = item.getBoundingClientRect();
+      if (r.top < window.innerHeight/2 && r.bottom > window.innerHeight/2) {
+        const badge = item.querySelector('.date-badge');
+        currentYear = badge ? badge.textContent : '';
+      }
+    });
+    indicator.setAttribute('data-label', currentYear);
+  }
+
+  window.addEventListener('scroll', () => {
+    updateIndicator();
+
+    // back-to-top visibility
+    if (window.scrollY > window.innerHeight) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
   });
+
+  backBtn.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // initial position
+  updateIndicator();
 </script>
 
 
+<script src="image-click.js"></script>
 </body>
 </html>
