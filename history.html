@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tampa Timeline</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="timeline.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      background-image: url(Backround-circle.png);
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      display: block;
+      margin: 40px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="main">
+  <h1>All About Tampa</h1>
+
+  <div class="navbar">
+    <a class="nav" href="index.html">Home Page</a>
+    <a class="samepage" href="timeline.html">Tampa Timeline</a>
+    <a class="nav" href="Funfacts.html">Fun Facts</a>
+    <a class="nav" href="travel.html">Travel Tips</a>
+    <a class="nav" href="sources.html">Reference</a>
+        <a class="nav" href="Contact.html">Contact Us</a>
+</div>
+
+<div class="timeline">
+
+  <!-- EVENT 1 -->
+  <a href="event2.html" style="text-decoration:none; color:inherit;">
+    <div class="timeline-item left">
+      <div class="content">
+        <h3>Henry B. Plant Museum</h3>
+        <p>The Henry B. Plant Museum, located in Tampa, Florida, is a historic site housed in the former Tampa Bay Hotel. It offers a unique glimpse into the opulence of the Gilded Age.</p>
+        <h6>Established <time datetime="1933-01-01">1933</time></h6>
+        <img src="HenryB.jpg" class="hover-img" alt="Henry B. Plant Museum">
+      </div>
+    </div>
+  </a>
+
+  <!-- EVENT 2 -->
+  <a href="Event3.html" style="text-decoration:none; color:inherit;">
+    <div class="timeline-item right">
+      <div class="content">
+        <h3>Tampa Magazines</h3>
+        <p>This article explores 100 years of Tampa's rich and entertaining history.</p>
+        <h6>Established <time datetime="1920-01-01">1920s</time></h6>
+        <img src="Tampa magazines.jpg" class="hover-img" alt="Tampa magazines">
+      </div>
+    </div>
+  </a>
+
+  <!-- EVENT 3 -->
+  <a href="event1.html" style="text-decoration:none; color:inherit;">
+    <div class="timeline-item left">
+      <div class="content">
+        <h3>St. Petersburg Museum of History</h3>
+        <p>The St. Petersburg Museum of History aims to share knowledge from experts and academics with the public in an accessible way.</p>
+        <h6>Established <time datetime="1908-01-01">1908</time></h6>
+        <img src="tampa museum pic cropped.jpg" class="hover-img" alt="St. Petersburg Museum of History">
+      </div>
+    </div>
+  </a>
+
+  <!-- EVENT 4 -->
+  <a href="event5.html" style="text-decoration:none; color:inherit;">
+    <div class="timeline-item right">
+      <div class="content">
+        <h3>Cigar City</h3>
+        <p>This vibrant area became a major center for cigar manufacturing, attracting skilled workers from Cuba and Spain.</p>
+        <h6>Established <time datetime="1886-01-01">1886</time></h6>
+        <img src="cigar-city-magazine-issue-19.jpg" class="hover-img" alt="Cigar City">
+      </div>
+    </div>
+  </a>
+
+  <!-- EVENT 5 -->
+  <a href="event4.html" style="text-decoration:none; color:inherit;">
+    <div class="timeline-item left">
+      <div class="content">
+        <h3>Silver Springs</h3>
+        <p>Explore the natural beauty of Silver Springs, a popular destination for swimming and snorkeling in crystal-clear waters.</p>
+        <h6>Established <time datetime="1804-01-01">1804</time></h6>
+        <img src="Silver_springs.jpg" class="hover-img" alt="Silver Springs">
+      </div>
+    </div>
+  </a>
+
+  <!-- trinagle bottom -->
+  <div class="timeline-end"></div>
+
+</div>
+
+<script>
+  const items = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 1 });
+
+  items.forEach(item => observer.observe(item));
+</script>
+
+<script>
+  const indicator = document.querySelector('.scroll-indicator');
+  const timeline = document.querySelector('.timeline');
+  const items = document.querySelectorAll('.timeline-item');
+  const backBtn = document.getElementById('back-to-top');
+
+  function updateIndicator() {
+    const rect = timeline.getBoundingClientRect();
+    const scrollPos = Math.min(Math.max(0, window.innerHeight - rect.top), rect.height);
+    indicator.style.top = scrollPos + 'px';
+
+    // determine current item in middle of viewport
+    let currentYear = '';
+    items.forEach(item => {
+      const r = item.getBoundingClientRect();
+      if (r.top < window.innerHeight/2 && r.bottom > window.innerHeight/2) {
+        const badge = item.querySelector('.date-badge');
+        currentYear = badge ? badge.textContent : '';
+      }
+    });
+    indicator.setAttribute('data-label', currentYear);
+  }
+
+  window.addEventListener('scroll', () => {
+    updateIndicator();
+
+    // back-to-top visibility
+    if (window.scrollY > window.innerHeight) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  });
+
+  backBtn.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // initial position
+  updateIndicator();
+</script>
+
+
+<script src="image-click.js"></script>
+</body>
+</html>

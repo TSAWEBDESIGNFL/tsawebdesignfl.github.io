@@ -1,11 +1,5 @@
-html {
-  scroll-behavior: smooth;
-}
-
-
-
 body {
-  background-image: url(Backround-circle.png);
+  background-image: url(light.png);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -14,6 +8,8 @@ body {
   margin: 40px;
   text-align: left;
 }
+
+/* The MAIN class is to set the left and right margins. */
 
 .main {
   display: block;
@@ -28,18 +24,19 @@ h1 {
   font-family: arial;
   text-align: center;
   font-weight: bold;
-  font-style: italic;
-  border-color: #000000;
+  border-color: #ffffff66;
+  border-filter: blur(20px);
   border-style: solid;
   border-width: 4px;
   border-radius: 16px;
-  background-color: #ffffffbb;
-  backdrop-filter:blur(10px);
-
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  background-color: #ffffff66;
+  backdrop-filter: blur(10px);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  letter-spacing: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: #ffffff;
   margin-bottom: 0px;
-  letter-spacing: 1px;
   font-size: 50px;
   padding: 6px;
 }
@@ -47,20 +44,22 @@ h1 {
 h2 {
   font-family: arial;
   font-weight: bold;
-  text-align: center;
   font-style: italic;
-  color: whitesmoke;
-  border-color: #000000;
-  border-style: none;
+  color: white;
+  border-color: #ffffff66;
+  border-filter: blur(20px);
+  border-style: solid;
   border-width: 4px;
   border-radius: 16px;
-  background-color: #ffffffbb;
-  backdrop-filter:blur(10px);
-  
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-  margin-bottom: px;
-  font-size: 24px;
-  padding:0px;
+  background-color: #ffffff66;
+  backdrop-filter: blur(10px);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-bottom: 0px;
+  font-size: 36px;
+  padding: 6px;
 }
 
 h3 {
@@ -69,25 +68,14 @@ h3 {
   margin-bottom: 0px;
   font-size: 28px;
   color: #000000;
-  font-style: normal;
-  font-size: 20px;
-  border-color: #000000;
-  border-style: single;
-  border-width: 4px;
-  border-radius: 16px;
-  background-color: #ffffffbb;
-  backdrop-filter:blur(10px);
-  
-  margin-top: 6px;
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: justify;
 }
 
 h4 {
   font-family: arial;
   font-weight: bold;
   font-size: 22px;
+  color: #000000;
+  margin-bottom: 0px;
 }
 
 h6 {
@@ -108,73 +96,34 @@ ul {
 }
 
 img {
-  margin-right: 35px;
-  width: 400px;
-  height: 300px;
-  border-style: none;
-  border-width: 8px;
+  margin: 36px;
+  max-width: 400px;
+  border-style: hidden;
   border-radius: 10px;
   margin-top: 20px;
   float: left;
-  cursor: pointer;
 }
 
 .special {
   color: #000000;
   font-style: normal;
   font-size: 20px;
-  border-color: #000000;
-  border-style: double;
+  border-color: #ffffff66;
+  border-filter: blur(20px);
+  border-style: solid;
   border-width: 4px;
   border-radius: 16px;
-  background-color: #ffffffbb;
-  backdrop-filter:blur(10px);
-  
+  background-color: #ffffff88;
+  backdrop-filter: blur(10px);
   margin-top: 6px;
   padding-left: 40px;
   padding-right: 40px;
   text-align: justify;
+  max-height: 32768px;
+  overflow: auto;
+  padding-bottom: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
-
-.special-center {
-  color: #000000;
-  font-style: normal;
-  font-size: 20px;
-  border-color: #000000;
-  border-style: double;
-  border-width: 4px;
-  border-radius: 16px;
-  background-color: #ffffffbb;
-  backdrop-filter:blur(10px);
-  
-  margin-top: 6px;
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: center;
-}
-
-.special-good {
-  color: #000000;
-  font-style: normal;
-  font-size: 20px;
-  border-color: #000000;
-  border-style: single;
-  border-width: 4px;
-  border-radius: 16px;
-  background-color: #ffffffbb;
-  backdrop-filter:blur(10px);
-  
-  margin-top: 6px;
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: none;
-}
-
-
-
-
-
-
 
 #special {
   padding: 20px 40px;
@@ -195,7 +144,7 @@ img {
 
 a {
   text-decoration: none;
-  color: #000000;
+  color: #004488;
   text-shadow: none;
 }
 
@@ -329,21 +278,34 @@ img:hover {
 
 
    /* Navbar Hover Upgrade */
-.navbar a {
-    transition: all 0.25s ease-in-out;
+.navbar > a {
+  border-color: #000000;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  backdrop-filter:blur(10px);
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  height: 26px;
+  color: #ffffff;
+  padding: 2px 4px;
 }
 
-.navbar a:hover {
-    transform: scale(1.08);
-    background-color: #66aaffdd;
-    box-shadow: 0 0 10px #00000055;
+.nav {
+  background-color: #4488ffaa;
+  border-color: #4488ff88;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  margin: 2px;
 }
 
-/* Active Page Highlight */
 .samepage {
-    background-color: #44ff88dd !important;
-    transform: scale(1.1);
-    box-shadow: 0 0 12px #00000055;
+  background-color: #44ff88aa;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  margin: 2px;
+  backdrop-filter: 10px;
 }
 
 .funfacts li {
@@ -800,4 +762,8 @@ font-size: 30px;
 
 color: #0077cc;
 
+}
+
+.hidden {
+  display: none;
 }
