@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendation Form</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      
+      background-color:url(Backround-circle.png) !important;
+      background-size: cover;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 12px;
+    }
+    .step {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .step.active {
+      display: block;
+    }
+    .form-container h2 {
+      margin-top: 0;
+    }
+    .form-row {
+      margin-bottom: 16px;
+    }
+    .form-row label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-row textarea {
+      resize: vertical;
+      height: 80px;
+    }
+    .result-box {
+      margin-top: 24px;
+      padding: 16px;
+      background: #e9f3ff;
+      border-left: 6px solid #0077cc;
+      border-radius: 4px;
+    }
+    /* steps controlled by JS */
+    .step { display: none; }
+    .step.active { display: block; }
+  </style>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { text-align:center; }
+    .quiz-container { max-width:800px; margin:0 auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .question { margin-bottom:18px; background:#fdfdfd; padding:12px; border:1px solid #ddd; border-radius:8px; }
+    .question label { font-weight:bold; display:block; margin-bottom:6px; }
+    select { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; background:#fff; appearance:none; }
+    .step { display: none; }
+    .step.active { display: block; }
+    button { padding:10px 20px; background:#0077cc; color:#fff; border:none; border-radius:10px; cursor:pointer; font-size:1rem; }
+    button:hover { background:#005fa3; }
+  </style>
+  
+</head>
+<body>
+  <div class="main">
+    <h1> Community Recommender</h1>
+    <div class="form-container">
+      <h2 id="step-title">Welcome to the Community Quiz</h2>
+      <div id="progress" style="font-size:0.9em; color:#555; margin-bottom:12px;"></div>
+      <form id="recommendation-form">
+        <div class="step active" data-step="0">
+          <p>Answer a few questions to get personalized community suggestions. Click <strong>Start</strong> to begin!</p>
+        </div>
+        <div class="step" data-step="1">
+          <div class="form-row">
+            <label for="activity">What would you like to do?</label>
+            <select id="activity" name="activity" required>
+              <option value="">-- choose an option --</option>
+              <option value="beach">Relax on the beach</option>
+              <option value="museum">Visit a museum</option>
+
+              <option value="food">Try food</option>
+              <option value="park">Go to a park </option>
+              <option value="shopping">Shopping</option>
+
+
+        
+            </select>
+
+
+          </div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="form-row">
+
+
+            <label for="duration">How many days will you stay?</label>
+            <input type="number" id="duration" name="duration" min="1" max="30" placeholder=" required>
+
+          </div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="form-row">
+
+
+            <label for="budget">Budget level</label>
+            <select id="budget" name="budget">
+
+
+              <option value="medium" selected>Moderate</option>
+              <option value="low">Low</option>
+
+
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        <div class="step" data-step="4">
+          <div class="form-row">
+
+            <label for="companions">Traveling with</label>
+            <select id="companions" name="companions">
+              <option value="solo" selected>Solo</option>
+              <option value="family">Family</option>
+
+
+              <option value="couple">Couple</option>
+              <option value="friends">Friends</option>
+
+
+
+
+
+
+            </select>
+          </div>
+        </div>
+
+        <div class="step" data-step="5">
+          <div class="form-row">
+            <label for="interest">Any special interests?</label>
+
+
+            <select id="interest" name="interest">
+              <option value="none" selected>None</option>
+
+
+              <option value="history">History</option>
+              <option value="foodie">Foodie experiences</option>
+
+
+              <option value="adventure">Adventure/sports</option>
+            </select>
+
+          </div>
+        </div>
+
+
+        <div class="btn-group">
+          <button type="button" id="prevBtn" style="display:none;">← Previous</b
+            utton>
+          <button type="button" id="nextBtn">Next →</button>
+        </div>
+
+      </form>
+      <div id="result" class="result-box" style="display:none;"></div>
+
+
+    </div>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll('.step');
+
+    let currentStep = 0;
+    const form = document.getElementById('recommendation-form');
+
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const stepTitle = document.getElementById('step-title');
+
+    function showStep(n) {
+      steps.forEach(s => s.classList.remove('active'));
+      document.querySelector(`.step[data-step="${n}"]`).classList.add('active');
+      prevBtn.style.display = n <= 0 ? 'none' : 'inline-block';
+      nextBtn.textContent = n === steps.length - 1 ? 'Get Recommendation' : (n === 0 ? 'Start' : 'Next →');
+      // update progress text
+      const progress = document.getElementById('progress');
+      if (progress) {
+        const total = steps.length - 1; // exclude intro
+        if (n === 0) {
+          progress.textContent = '';
+        } else {
+          progress.textContent = `Question ${n} of ${total}`;
+        }
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 0) currentStep--;
+      showStep(currentStep);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      // validate current step inputs (skip intro)
+      if (currentStep > 0) {
+        const currentFields = steps[currentStep].querySelectorAll('input,select');
+        for (let field of currentFields) {
+          if (field.hasAttribute('required') && !field.value) {
+            field.reportValidity();
+            return;
+          }
+        }
+      }
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        computeRecommendation();
+      }
+    });
+
+    function computeRecommendation() {
+      const activity = form.activity.value;
+      const days = parseInt(form.duration.value, 10);
+      const budget = form.budget.value;
+      const companions = form.companions.value;
+      const interest = form.interest ? form.interest.value : 'none';
+      let recommendation = '';
+      let tips = [];
+      if (activity === 'beach') {
+        if (days <= 2) {
+          recommendation = 'short getaway on Clearwater Beach.';
+        } else {
+          recommendation = 'Clearwater and St. Pete Beach with a boat tour.';
+        }
+        if (companions === 'family') tips.push('beach with calm waters for kids.');
+        if (budget === 'low') tips.push('use free parking areas and pack lunch.');
+        if (days > 3) tips.push('take a day trip to Caladesi Island.');
+      } else if (activity === 'museum') {
+        recommendation = 'visit Tampa Museum of Art ';
+        if (companions === 'couple') recommendation += ' (great for a cultural date day)';
+        tips.push('');
+        if (budget === 'high') tips.push('look for special exhibitions');
+      } else if (activity === 'food') {
+        recommendation = 'Cuban sandwiches in Ybor City and seafood at Jackson’s or Oystercatchers.';
+        if (companions === 'friends') tips.push('try a food tour');
+        tips.push('dont go on weekends for shorter wait times.');
+      } else if (activity === 'park') {
+        recommendation = ' hillsborough River State Park or Lettuce Lake Park.';
+        tips.push('bring mosquito repellent');
+        if (companions === 'solo') tips.push('go birdwatching.');
+      } else if (activity === 'shopping') {
+        recommendation = 'visit the International Plaza.';
+        tips.push('');
+        if (budget === 'low') tips.push('thrift stores in Seminole Heights.');
+      } else if (activity === 'nightlife') {
+        recommendation = 'Ybor City or SoHo for nightlife.';
+        tips.push('use ride-shares and remember parking is scarce late.');
+        if (companions === 'family') recommendation = 'go to busch gardens ';
+      }
+      // extra interest-based advice
+      if (interest === 'history' && activity !== 'museum') {
+        tips.push(' a historical tour of Ybor City and the tampa bay hotel.');
+      }
+      if (interest === 'foodie' && activity !== 'food') {
+        tips.push('try a food tour');
+      }
+      if (interest === 'adventure' && activity === 'park') {
+        tips.push(' kayaking and zip-lines are fun');
+      }
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = '<strong>Recommendation:</strong> ' + recommendation + '<br>' +
+                            '<strong>Tips:</strong><ul>' + tips.map(t => '<li>' + t + '</li>').join('') + '</ul>' +
+                            '<p style="margin-top:18px; display:none;">Not satisfied? Click <a href="detailed_quiz.html" class="link">Here</a> To take the a more detailed quiz for better insights</p>';
+      nextBtn.style.display = 'none';
+      prevBtn.style.display = 'none';
+      stepTitle.textContent = 'Your Plan';
+    }
+
+    showStep(currentStep);
+  </script>
+</body>
+</html>

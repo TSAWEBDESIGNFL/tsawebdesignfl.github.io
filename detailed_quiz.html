@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Detailed Travel Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; margin: -90px; }
+    h1 { text-align:center; }
+    .quiz-container { max-width:800px; margin:0 auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .question { margin-bottom:18px; background:#fdfdfd; padding:12px; border:1px solid #ddd; border-radius:8px; }
+    .question label { font-weight:bold; display:block; margin-bottom:6px; }
+    select { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; background:#fff; appearance:none; }
+    .step { display: none; }
+    .step.active { display: block; }
+    button { padding:10px 20px; background:#0077cc; color:#fff; border:none; border-radius:10px; cursor:pointer; font-size:1rem; }
+    button:hover { background:#005fa3; }
+  </style>
+</head>
+<body>
+  <h1 style="margin: 90px;">Detailed Travel Quiz</h1>
+  <div class="quiz-container">
+    <p>Answer these 20 questions to get very specific recommendations.</p>
+    <form id="detailed-form">
+      <!-- generate 20 mixed-type questions as individual steps -->
+      <script>
+        const questions = [
+          {q: 'Which neighborhoods are you interested in? If you do not know please put something random or leave it blank.', type: 'text'},
+          {q: 'Do you prefer indoor or outdoor activities?', type: 'select', options: ['Indoor','Outdoor','Both']},
+          {q: 'Are you traveling with children?', type: 'select', options: ['No','Yes']},
+          {q: 'Do you have any dietary restrictions? (brief)', type: 'text'},
+          {q: 'How important is nightlife for you?', type: 'select', options: ['Low','Medium','High']},
+          {q: 'Do you plan to rent a car?', type: 'select', options: ['No','Yes']},
+          {q: 'Are museums a priority?', type: 'select', options: ['No','Yes']},
+          {q: 'Would you like to visit theme parks?', type: 'select', options: ['No','Yes']},
+          {q: 'Are you interested in historical tours?', type: 'select', options: ['No','Yes']},
+          {q: 'Do you like water sports?', type: 'select', options: ['No','Yes']},
+          {q: 'How many meals per day will you eat out?', type: 'number', min:1, max:10},
+          {q: 'Do you need wheelchair accessibility?', type: 'select', options: ['No','Yes']},
+          {q: 'Are you interested in live music?', type: 'select', options: ['No','Yes']},
+          {q: 'Do you prefer budget or luxury accommodations?', type: 'select', options: ['Budget','Moderate','Luxury']},
+          {q: 'Are you bringing pets?', type: 'select', options: ['No','Yes']},
+          {q: 'Do you want to explore nearby cities?', type: 'select', options: ['No','Yes']},
+          {q: 'How much shopping do you anticipate?', type: 'select', options: ['None','A little','A lot']},
+          {q: 'Do you enjoy guided tours or self-exploration?', type: 'select', options: ['Guided','Self','Both']},
+          {q: 'Are you interested in local festivals/events?', type: 'select', options: ['No','Yes']},
+          {q: 'Would you like suggestions for day trips?', type: 'select', options: ['No','Yes']}
+        ];
+        const container = document.getElementById('detailed-form');
+        questions.forEach((item,i) => {
+          const step = document.createElement('div');
+          step.className = 'step';
+          step.dataset.step = i;
+          const inner = document.createElement('div');
+          inner.className = 'question';
+          inner.innerHTML = `<label for="q${i}">${i+1}. ${item.q}</label>`;
+          let input;
+          if(item.type === 'select'){
+            input = document.createElement('select');
+            input.id = `q${i}`; input.name = `q${i}`; input.required = true;
+            input.innerHTML = '<option value="">-- select --</option>' + item.options.map(o=>`<option value="${o}">${o}</option>`).join('');
+          } else if(item.type === 'number'){
+            input = document.createElement('input');
+            input.type = 'number'; input.id = `q${i}`; input.name = `q${i}`; input.required = true;
+            if(item.min) input.min = item.min; if(item.max) input.max = item.max;
+          } else { // text
+            input = document.createElement('input'); input.type = 'text'; input.id = `q${i}`; input.name = `q${i}`; input.required = false;
+            input.placeholder = 'Type your answer...';
+          }
+          input.style.width = '100%'; input.style.padding = '10px'; input.style.borderRadius = '8px'; input.style.border = '1px solid #ccc';
+          inner.appendChild(input);
+          step.appendChild(inner);
+          container.appendChild(step);
+        });
+        // add navigation controls
+        const nav = document.createElement('div');
+        nav.style.marginTop = '12px';
+        nav.innerHTML = '<button type="button" id="dq-prev" style="display:none; margin-right:8px;">← Previous</button><button type="button" id="dq-next">Next →</button>';
+        container.appendChild(nav);
+      </script>
+      <!-- result and submit handled by JS when last step reached -->
+    </form>
+    <div id="detailed-result" style="display:none; margin-top:20px; background:#e9f3ff; padding:16px; border-left:6px solid #0077cc; border-radius:4px;"></div>
+  </div>
+  <script>
+    // navigation logic for per-question steps and result calculation
+    (function(){
+      const steps = document.querySelectorAll('.step');
+      let idx = 0;
+      const prev = document.getElementById('dq-prev');
+      const next = document.getElementById('dq-next');
+      const result = document.getElementById('detailed-result');
+      function show(i){
+        steps.forEach(s=>s.classList.remove('active'));
+        if(steps[i]) steps[i].classList.add('active');
+        prev.style.display = i===0 ? 'none' : 'inline-block';
+        next.textContent = i===steps.length-1 ? 'Submit' : 'Next →';
+      }
+      prev.addEventListener('click', ()=>{ if(idx>0) idx--; show(idx); });
+      next.addEventListener('click', ()=>{
+        // validate current input
+        const curInput = steps[idx].querySelector('select, input');
+        if(curInput){
+          if(curInput.hasAttribute('required') && !curInput.value){ curInput.reportValidity(); return; }
+        }
+        if(idx < steps.length-1){ idx++; show(idx); }
+        else {
+          // compute a simple recommendation based on answers
+          const answers = {};
+          steps.forEach((s,i)=>{
+            const sel = s.querySelector('select, input');
+            answers['q'+i] = sel ? sel.value : '';
+          });
+          // scoring and logic
+          let score = 0;
+          const tips = [];
+          const prefs = [];
+          // neighborhoods (text)
+          const nb = (answers.q0||'').toLowerCase();
+          if(nb.includes('ybor')) { prefs.push('Explore Ybor City for food and nightlife'); score+=2; }
+          if(nb.includes('downtown')||nb.includes('river')) { prefs.push('Stay near the Riverwalk for museums and walking'); score+=2; }
+          // indoor/outdoor
+          if(answers.q1==='Outdoor'){ prefs.push('Plan morning outdoor activities to avoid afternoon heat'); score+=1; }
+          if(answers.q2==='Yes'){ prefs.push('Family-friendly attractions recommended'); score+=2; }
+          if(answers.q6==='Yes'){ prefs.push('Include the Tampa Museum of Art and Henry B. Plant Museum'); score+=2; }
+          if(answers.q9==='Yes'){ prefs.push('Try water sport rentals or beach activities'); score+=2; }
+          const meals = parseInt(answers.q10,10)||0;
+          if(meals>=2) tips.push('Budget for multiple dining stops — try food halls like Armature Works');
+          if(answers.q11==='Yes') tips.push('Check accessibility info for attractions and call ahead if needed');
+          if(answers.q4==='High') { prefs.push('Nightlife is important — plan evenings in Ybor or SoHo'); score+=2; }
+          if(answers.q13==='Luxury') tips.push('Consider waterfront hotels like Le Méridien or Sandpearl.');
+          if(answers.q14==='Yes') tips.push('Confirm pet policies with hotels in advance.');
+          if(answers.q16==='A lot') prefs.push('Allow extra time for shopping districts like Hyde Park Village');
+          // decide top recommendation
+          let recommendation = 'A balanced Tampa visit with highlights from local attractions.';
+          if(prefs.length){ recommendation = prefs[0] + (prefs[1]? ' — also: '+prefs[1] : ''); }
+          if(score>=6) recommendation = 'High-match: '+recommendation;
+          else if(score>=3) recommendation = 'Good-match: '+recommendation;
+          else recommendation = 'Suggested starting plan: '+recommendation;
+
+          // show results
+          result.style.display='block';
+          result.innerHTML = `<strong>Recommendation:</strong> ${recommendation}` +
+            `<br><strong>Tips:</strong><ul>${tips.map(t=>'<li>'+t+'</li>').join('')}</ul>` +
+            
+            `<details style="margin-top:12px;"><summary>Your answers</summary><pre style="white-space:pre-wrap;">${JSON.stringify(answers, null, 2)}</pre></details>`;
+          prev.style.display='none'; next.style.display='none';
+        }
+      });
+      if(steps.length) show(0);
+    })();
+  </script>
+</body>
+</html>
